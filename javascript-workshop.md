@@ -1,4 +1,4 @@
-# การทดลอง พื้นฐาน JavaScript และการใช้งานร่วมกับ HTML/CSS
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/b0f6aa65-4a0b-4d17-88e7-71d062cec545" /># การทดลอง พื้นฐาน JavaScript และการใช้งานร่วมกับ HTML/CSS
 ## การทดลองที่ 1 : ทำความรู้จักกับ JavaScript
 ###  การเพิ่ม JavaScript ลงในเว็บเพจ
 
@@ -848,10 +848,69 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 
 ### บันทึกผลการทดลอง 2.4.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบที่ 2.4.2: Arrow Functions</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; padding: 20px; background-color: #f9f9f9; }
+        .code-box { background: white; padding: 20px; border-radius: 12px; border-top: 5px solid #ff5722; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h2 { color: #e64a19; margin-top: 0; }
+        .output { font-family: monospace; font-size: 1.1em; color: #333; }
+    </style>
+</head>
+<body>
+
+    <h1>แบบทดสอบที่ 2.4.2: Arrow Functions</h1>
+
+    <div class="code-box">
+        <h2>1. คำนวณ BMI (Arrow Function)</h2>
+        <div class="output" id="out1"></div>
+    </div>
+
+    <div class="code-box">
+        <h2>2. ทักทายตามวัย (Arrow Function)</h2>
+        <div class="output" id="out2"></div>
+    </div>
+
+    <div class="code-box">
+        <h2>3. ตรวจสอบรหัสผ่าน (Arrow Function)</h2>
+        <div class="output" id="out3"></div>
+    </div>
+
+    <script>
+        // --- 1. คำนวณ BMI ด้วย Arrow Function แบบบรรทัดเดียว ---
+        const calcBMI = (weight, heightCm) => (weight / ((heightCm / 100) ** 2)).toFixed(2);
+
+        document.getElementById('out1').innerText = `น้ำหนัก 70kg สูง 175cm -> BMI: ${calcBMI(70, 175)}`;
+
+
+        // --- 2. ทักทายตามช่วงอายุ ด้วย Arrow Function ---
+        const getGreeting = (name, age) => {
+            if (age <= 12) return `สวัสดี น้อง ${name}`;
+            if (age <= 20) return `สวัสดี วัยรุ่น!${name}`;
+            return `สวัสดีครับคุณ ${name}`;
+        };
+
+        document.getElementById('out2').innerText = getGreeting("มานี", 15);
+
+
+        // --- 3. ตรวจสอบรหัสผ่าน (Arrow Function แบบย่อ) ---
+        const isPassValid = password => password.length > 8 
+            ? "รหัสผ่านปลอดภัย" 
+            : "รหัสผ่านสั้นเกินไป";
+
+        document.getElementById('out3').innerText = `รหัส 'password123': ${isPassValid("password123")}`;
+
+        console.log("2.4.2: Arrow Functions เรียบร้อย!");
+    </script>
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.4.2](images/image.png)
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/ebf2e930-b65d-4877-8fc7-670422c31f4b" />
+
 
 
 ## การทดลองที่ 3 : การใช้ JavaScript กับ HTML และ CSS
