@@ -194,10 +194,83 @@ let person = {
 
 ### บันทึกผลการทดลอง 2.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบที่ 2.1: การประกาศตัวแปรและ Object</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; background-color: #f4f7f6; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 500px; }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        p { font-size: 1.1em; color: #34495e; }
+        .label { font-weight: bold; color: #3498db; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>ข้อมูลนักศึกษา (จาก Object)</h2>
+        <div id="display">
+            </div>
+    </div>
+
+    <script>
+        // --- 1. สร้างตัวแปร (ตามโจทย์) ---
+        const studentID = "68030345"; 
+        const studentName = "นายจิรัฎฐ์ นาคเชียร";
+        let midScore = 25; 
+        let finalScore = 38;
+
+        // --- 2. สร้าง Object (ตามโจทย์) ---
+        let studentProfile = {
+            id: studentID,
+            name: studentName,
+            major: "ครุศาสตร์ สาขา เทคโนโลยีคอมพิวเตอร์",
+            gpax: 3.50
+        };
+
+        // --- ส่วนการแสดงผลบนหน้า HTML ---
+        const displayDiv = document.getElementById('display');
+        
+        displayDiv.innerHTML = `
+            <p><span class="label">รหัส:</span> ${studentProfile.id}</p>
+            <p><span class="label">ชื่อ:</span> ${studentProfile.name}</p>
+            <p><span class="label">สาขาวิชา:</span> ${studentProfile.major}</p>
+            <p><span class="label">เกรดเฉลี่ย:</span> ${studentProfile.gpax}</p>
+            <hr>
+            <p><span class="label">คะแนนรวม (let):</span> ${midScore + finalScore} คะแนน</p>
+        `;
+
+        // แสดงผลใน Console ด้วยเพื่อการตรวจสอบ
+        console.log("Student Data:", studentProfile);
+    </script>
+</body>
+</html>
+```
+```java
+
+const studentID = "68030345"; 
+const studentName = "นายจิรัฎฐ์ นาคเชียร";
+
+let midScore = 25; 
+let finalScore = 38;
+
+
+let studentProfile = {
+    id: "68030345",        
+    name: "นายจิรัฎฐ์ นาคเชียร",    
+    major: "ครุศาสตร์ สาขา เทคโนโลยีคอมพิวเตอร์", 
+    gpax: 3.50               
+};
+
+console.log("คะแนนรวม:", midScore + finalScore);
+console.log("ข้อมูลนักศึกษาใน Object:", studentProfile);
+console.log("สาขาวิชา:", studentProfile.major);
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.1](images/image.png)
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/890df431-7a7d-48e1-afef-2bf2757cec8d" />
+
 
 
 ### 2.2 การดำเนินการทางคณิตศาสตร์
