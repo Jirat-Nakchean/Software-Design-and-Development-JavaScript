@@ -1205,10 +1205,172 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 
 ### บันทึกผลการทดลอง 3.2.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจองห้องพักออนไลน์</title>
+    <style>
+        /* ส่วน CSS จากแบบฝึกหัด 3.2.2 */
+        body {
+            font-family: 'Sarabun', sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #34495e;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52,152,219,0.3);
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+        }
+        
+        /* เพิ่มเติมเพื่อความสวยงาม */
+        #booking-summary {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4fd;
+            border-left: 5px solid #2980b9;
+            display: none; /* ซ่อนไว้ก่อนจนกว่าจะกดจอง */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>แบบฟอร์มจองห้องพัก</h1>
+    
+    <form id="bookingForm">
+        <div>
+            <label for="fullname">ชื่อ-นามสกุล:</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
+
+        <div>
+            <label for="email">อีเมล:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="phone">เบอร์โทรศัพท์:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div>
+            <label for="checkin">วันที่เช็คอิน:</label>
+            <input type="date" id="checkin" name="checkin" required>
+        </div>
+
+        <div>
+            <label for="checkout">วันที่เช็คเอาท์:</label>
+            <input type="date" id="checkout" name="checkout" required>
+        </div>
+
+        <div>
+            <label for="roomtype">ประเภทห้องพัก:</label>
+            <select id="roomtype" name="roomtype" required>
+                <option value="">กรุณาเลือกประเภทห้องพัก</option>
+                <option value="Standard">ห้องมาตรฐาน</option>
+                <option value="Deluxe">ห้องดีลักซ์</option>
+                <option value="Suite">ห้องสวีท</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="guests">จำนวนผู้เข้าพัก:</label>
+            <input type="number" id="guests" name="guests" min="1" max="4" required>
+        </div>
+
+        <button type="submit">จองห้องพัก</button>
+    </form>
+
+    <div id="booking-summary"></div>
+
+    <script>
+        // เพิ่ม JavaScript เพื่อจัดการการส่งข้อมูล (Form Submission)
+        const form = document.getElementById('bookingForm');
+        const summary = document.getElementById('booking-summary');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // ป้องกันหน้าเว็บ Refresh
+
+            // ดึงข้อมูลจากฟอร์ม
+            const name = document.getElementById('fullname').value;
+            const room = document.getElementById('roomtype').value;
+            const date = document.getElementById('checkin').value;
+
+            // แสดงข้อความยืนยัน
+            summary.style.display = 'block';
+            summary.innerHTML = `
+                <strong>ยืนยันการจองเรียบร้อย!</strong><br>
+                คุณ ${name} ได้จอง${room} <br>
+                ตั้งแต่วันที่ ${date} เป็นต้นไป
+            `;
+
+            // แจ้งเตือนผ่าน Alert แบบในบทเรียนที่ผ่านมา
+            alert("ขอบคุณครับ คุณ " + name + " ระบบได้รับข้อมูลการจองแล้ว");
+        });
+    </script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 3.2.2](images/image.png)
+<img width="1914" height="952" alt="image" src="https://github.com/user-attachments/assets/5aa84837-c92e-42b0-8a84-bb72ff8acf2a" />
+
 
 
 ## ขั้นตอนที่ 3.2.3: การเพิ่มฟังก์ชันด้วย JavaScript
