@@ -978,10 +978,74 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 
 ### บันทึกผลการทดลอง 3.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบ 3.1: BMI Calculator</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; padding: 30px; background-color: #f4f7f6; text-align: center; }
+        .container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block; min-width: 300px; }
+        input { padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; width: 80%; }
+        button { padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #218838; }
+        #result { margin-top: 20px; font-weight: bold; font-size: 1.2em; color: #333; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>โปรแกรมคำนวณ BMI</h2>
+        
+        <input type="number" id="weight" placeholder="น้ำหนัก (กก.)"> <br>
+        <input type="number" id="height" placeholder="ส่วนสูง (ซม.)"> <br>
+        
+        <button onclick="checkBMI()">คำนวณผลลัพธ์</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // ใช้ Arrow Function ในการคำนวณและแสดงผล
+        const checkBMI = () => {
+            // ดึงค่าจากช่อง Input
+            const w = parseFloat(document.getElementById('weight').value);
+            const h = parseFloat(document.getElementById('height').value) / 100; // แปลงเป็นเมตร
+            
+            if (isNaN(w) || isNaN(h) || h === 0) {
+                document.getElementById('result').innerHTML = "กรุณากรอกข้อมูลให้ครบถ้วน";
+                return;
+            }
+
+            // คำนวณ BMI
+            const bmi = (w / (h * h)).toFixed(2);
+            let status = "";
+
+            // ตรรกะการแปลผล (If-Else)
+            if (bmi < 18.5) {
+                status = "ผอม";
+            } else if (bmi <= 22.9) {
+                status = "สมส่วน (ปกติ)";
+            } else if (bmi <= 24.9) {
+                status = "ท้วม";
+            } else if (bmi <= 29.9) {
+                status = "อ้วน";
+            } else {
+                status = "อ้วนมาก";
+            }
+
+            // แสดงผลลัพธ์บนหน้าจอ
+            document.getElementById('result').innerHTML = 
+                `ค่า BMI ของคุณคือ: ${bmi} <br> ผลลัพธ์: <span style="color: #d93025;">${status}</span>`;
+        };
+    </script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 3.1](images/image.png)
+<img width="1901" height="1030" alt="image" src="https://github.com/user-attachments/assets/7099ba64-8ea6-4012-a16a-61b73081e9ba" />
+
 
 ## การทดลองที่ 3.2 : การสร้างฟอร์มสำหรับจองห้องพัก
 การสร้างฟอร์มลงทะเบียนเพื่อรวบรวมข้อมูลที่จำเป็นสำหรับการจองห้องพัก
