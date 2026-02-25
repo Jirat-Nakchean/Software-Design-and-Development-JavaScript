@@ -723,10 +723,91 @@ process(function() {
 
 ### บันทึกผลการทดลอง 2.4.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบที่ 2.4.1: Functions</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; padding: 20px; line-height: 1.6; }
+        .function-card { background: #eef2f7; padding: 15px; border-radius: 10px; border-left: 6px solid #4CAF50; margin-bottom: 20px; }
+        h2 { color: #2e7d32; }
+        .result-text { font-weight: bold; color: #1565C0; }
+    </style>
+</head>
+<body>
+
+    <h1>แบบทดสอบที่ 2.4.1: Functions</h1>
+
+    <div class="function-card">
+        <h2>1. คำนวณค่า BMI</h2>
+        <div id="bmi-result"></div>
+    </div>
+
+    <div class="function-card">
+        <h2>2. ข้อความทักทายตามช่วงอายุ</h2>
+        <div id="greet-result"></div>
+    </div>
+
+    <div class="function-card">
+        <h2>3. ตรวจสอบความยาวรหัสผ่าน</h2>
+        <div id="pass-result"></div>
+    </div>
+
+    <script>
+        // --- 1. Function คำนวณค่า BMI ---
+        // สูตร: น้ำหนัก (kg) / (ส่วนสูง (m) * ส่วนสูง (m))
+        function calculateBMI(weight, heightCm) {
+            let heightM = heightCm / 100; // แปลงเซนติเมตรเป็นเมตร
+            let bmi = weight / (heightM * heightM);
+            return bmi.toFixed(2);
+        }
+
+        let myBMI = calculateBMI(65, 170); // ตัวอย่าง: น้ำหนัก 65 กก. สูง 170 ซม.
+        document.getElementById('bmi-result').innerHTML = 
+            "น้ำหนัก 65 กก. ส่วนสูง 170 ซม. <br>ค่า BMI คือ: <span class='result-text'>" + myBMI + "</span>";
+
+
+        // --- 2. Function ทักทายตามช่วงอายุ ---
+        function smartGreeting(name, age) {
+            let message = "";
+            if (age <= 12) {
+                message = "สวัสดีจ๊ะ น้อง " + name;
+            } else if (age <= 20) {
+                message = "สวัสดีวัยรุ่น! " + name;
+            } else {
+                message = "สวัสดีครับคุณ " + name;
+            }
+            return message;
+        }
+
+        let greeting = smartGreeting("สมชาย", 25);
+        document.getElementById('greet-result').innerHTML = 
+            "ผลลัพธ์การทักทาย: <span class='result-text'>" + greeting + "</span>";
+
+
+        // --- 3. Function ตรวจสอบรหัสผ่าน (> 8 ตัวอักษร) ---
+        function checkPassword(password) {
+            if (password.length > 8) {
+                return "รหัสผ่านปลอดภัย (ยาวกว่า 8 ตัว)";
+            } else {
+                return "รหัสผ่านสั้นเกินไป (ต้องมากกว่า 8 ตัว)";
+            }
+        }
+
+        let passStatus = checkPassword("123456"); // ทดสอบด้วยรหัสที่สั้นกว่า 8
+        document.getElementById('pass-result').innerHTML = 
+            "ตรวจสอบรหัส '123456': <span class='result-text'>" + passStatus + "</span>";
+
+        console.log("แบบฝึกหัด 2.4.1 พร้อมส่งครับ!");
+    </script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.4.1](images/image.png)
+<img width="1913" height="1025" alt="image" src="https://github.com/user-attachments/assets/93938da9-2e16-42de-b94c-f30c20eebb52" />
+
 
 
 
