@@ -322,10 +322,69 @@ number /= 2;          // เท่ากับ number = number / 2
 
 ### บันทึกผลการทดลอง 2.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบที่ 2.2: การคำนวณพื้นฐาน</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        .result-box { background: #f4f4f4; border-left: 5px solid #2196F3; padding: 15px; margin-bottom: 20px; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+
+    <h1>แบบทดสอบที่ 2.2: การคำนวณพื้นฐาน</h1>
+
+    <div class="result-box">
+        <h2>1. ผลการคำนวณคะแนนเฉลี่ย</h2>
+        <div id="score-output"></div>
+    </div>
+
+    <div class="result-box">
+        <h2>2. ผลการคำนวณราคาสินค้ารวม VAT</h2>
+        <div id="vat-output"></div>
+    </div>
+
+    <script>
+        // --- ข้อที่ 1: การหาค่าคะแนนเฉลี่ย 3 วิชา ---
+        let score1 = 85;
+        let score2 = 72;
+        let score3 = 90;
+        let average = (score1 + score2 + score3) / 3;
+
+        // นำผลลัพธ์ไปแสดงบนหน้าเว็บ
+        document.getElementById('score-output').innerHTML = 
+            "คะแนนวิชาที่ 1: " + score1 + "<br>" +
+            "คะแนนวิชาที่ 2: " + score2 + "<br>" +
+            "คะแนนวิชาที่ 3: " + score3 + "<br>" +
+            "<strong>ค่าเฉลี่ยคือ: " + average.toFixed(2) + "</strong>";
+
+
+        // --- ข้อที่ 2: การคำนวณราคาสินค้ารวม VAT 7% ---
+        let productName = "หูฟังบลูทูธ";
+        let price = 1500;
+        let vat = price * 0.07;
+        let totalPrice = price + vat;
+
+        // นำผลลัพธ์ไปแสดงบนหน้าเว็บ
+        document.getElementById('vat-output').innerHTML = 
+            "ชื่อสินค้า: " + productName + "<br>" +
+            "ราคาตั้งต้น: " + price + " บาท<br>" +
+            "ภาษี (7%): " + vat + " บาท<br>" +
+            "<strong>ราคาสุทธิที่ต้องจ่าย: " + totalPrice + " บาท</strong>";
+            
+        // แสดงผลใน Console ด้วยตามตัวอย่างที่คุณส่งมาตอนแรก
+        console.log("คำนวณเสร็จสมบูรณ์!");
+    </script>
+
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.2](images/image.png)
+<img width="1916" height="1032" alt="image" src="https://github.com/user-attachments/assets/1c780ba5-82ed-4eec-bccd-cb4fe81774f0" />
+
 
 ### 2.3 การควบคุมการทำงาน
 
