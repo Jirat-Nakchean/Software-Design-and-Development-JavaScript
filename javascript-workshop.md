@@ -515,10 +515,103 @@ for (let i = 1; i <= 5; i++) {
 
 ### บันทึกผลการทดลอง 2.3
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบที่ 2.3: การควบคุมการทำงาน</title>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; padding: 20px; background-color: #f0f2f5; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h2 { color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 5px; }
+        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .result { font-weight: bold; color: #d93025; }
+    </style>
+</head>
+<body>
+
+    <h1>แบบทดสอบที่ 2.3: การควบคุมการทำงาน</h1>
+
+    <div class="card">
+        <h2>1. ตรวจสอบเลขคู่/เลขคี่</h2>
+        <p id="ans1"></p>
+    </div>
+
+    <div class="card">
+        <h2>2. ตารางสูตรคูณ (แม่ 2 และ แม่ 3)</h2>
+        <div style="display: flex; gap: 50px;">
+            <div>
+                <h4>แม่ 2 (for loop)</h4>
+                <div id="ans2_for"></div>
+            </div>
+            <div>
+                <h4>แม่ 3 (while loop)</h4>
+                <div id="ans2_while"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. นับถอยหลัง 10 ถึง 1</h2>
+        <p id="ans3"></p>
+    </div>
+
+    <div class="card">
+        <h2>4. ตรวจสอบช่วงวัย</h2>
+        <p id="ans4"></p>
+    </div>
+
+    <script>
+        // --- 1. ตรวจสอบเลขคู่หรือเลขคี่ ---
+        let myNumber = 15; // กำหนดตัวเลขที่นี่
+        let result1 = (myNumber % 2 === 0) ? "เลขคู่" : "เลขคี่";
+        document.getElementById('ans1').innerHTML = "ตัวเลข " + myNumber + " คือ: <span class='result'>" + result1 + "</span>";
+
+        // --- 2. สูตรคูณแม่ 2 (for) และ แม่ 3 (while) ---
+        // แม่ 2
+        let textFor = "";
+        for (let i = 1; i <= 12; i++) {
+            textFor += "2 x " + i + " = " + (2 * i) + "<br>";
+        }
+        document.getElementById('ans2_for').innerHTML = textFor;
+
+        // แม่ 3
+        let textWhile = "";
+        let j = 1;
+        while (j <= 12) {
+            textWhile += "3 x " + j + " = " + (3 * j) + "<br>";
+            j++;
+        }
+        document.getElementById('ans2_while').innerHTML = textWhile;
+
+        // --- 3. เขียนโปรแกรมนับถอยหลัง 10 ถึง 1 ---
+        let countdownText = "";
+        for (let k = 10; k >= 1; k--) {
+            countdownText += k + (k > 1 ? ", " : "");
+        }
+        document.getElementById('ans3').innerHTML = "นับถอยหลัง: <span class='result'>" + countdownText + "</span>";
+
+        // --- 4. ตรวจสอบช่วงวัยตามอายุ ---
+        let myAge = 25; // กำหนดอายุที่นี่
+        let stage = "";
+        if (myAge <= 12) {
+            stage = "วัยเด็ก";
+        } else if (myAge <= 20) {
+            stage = "วัยรุ่น";
+        } else {
+            stage = "วัยผู้ใหญ่";
+        }
+        document.getElementById('ans4').innerHTML = "อายุ " + myAge + " ปี อยู่ในช่วง: <span class='result'>" + stage + "</span>";
+
+        // พิมพ์ลง Console ตามที่ตัวอย่างโค้ดคุณใช้ด้วย
+        console.log("แบบฝึกหัด 2.3 ทำงานสำเร็จ!");
+    </script>
+</body>
+</html>
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.3](images/image.png)
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/d3ad3cce-a42f-4ad0-9952-37264c9b5fe5" />
+
 
 ### 2.4 Functions และ Arrow Functions
 
