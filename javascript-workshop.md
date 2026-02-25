@@ -76,10 +76,69 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
    - มีปุ่มเมื่อคลิกแล้วจะแสดงข้อความที่กรอกในช่องข้อความ  (สามารถใช้ document.getElementById('id ของ textbox').value เพื่อดึงข้อมูลในช่อง)
 ### บันทึกผลการทดลอง 
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฝึกปฏิบัติที่ 1: การใช้งาน JavaScript เบื้องต้น</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        button { margin: 5px; cursor: pointer; }
+        .section { margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h2>1. สร้างหน้าเว็บที่มีปุ่ม 3 ปุ่ม</h2>
+        <button onclick="alert('ชื่อ-นามสกุล ของนักศึกษา')">ปุ่มที่ 1 (Inline)</button>
+
+        <button id="btn2">ปุ่มที่ 2 (Internal)</button>
+
+        <button id="btn3" onclick="showTime()">ปุ่มที่ 3 (External)</button>
+    </div>
+
+    <div class="section">
+        <h2>2. เพิ่มกล่องข้อความและปุ่มสำหรับแสดงผล</h2>
+        <input type="text" id="txtInput" placeholder="กรอกข้อความที่นี่">
+        
+        <button onclick="showText()">แสดงผลข้อความ</button>
+    </div>
+
+    <script>
+        // โค้ดสำหรับปุ่มที่ 2: แสดงวันที่ปัจจุบัน
+        document.getElementById('btn2').onclick = function() {
+            const today = new Date();
+            alert("วันที่ปัจจุบันคือ: " + today.toLocaleDateString());
+        };
+
+        // โค้ดสำหรับข้อที่ 2: ดึงค่าจาก textbox มาแสดงผลด้วย alert
+        function showText() {
+            // ใช้ document.getElementById('id ของ textbox').value เพื่อดึงข้อมูลตามคำแนะนำในโจทย์
+            let message = document.getElementById('txtInput').value;
+            if (message === "") {
+                alert("กรุณากรอกข้อความก่อนกดปุ่มครับ");
+            } else {
+                alert("ข้อความที่คุณกรอกคือ: " + message);
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
+```java
+function showTime() {
+    let now = new Date();
+    alert("เวลาปัจจุบันคือ: " + now.toLocaleTimeString());
+}
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 1](images/image.png)
+<img width="1914" height="936" alt="image" src="https://github.com/user-attachments/assets/1ea62f34-2e4b-4ef1-9ee4-6a78696abfdc" />
+
 
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
